@@ -14,9 +14,15 @@ public class UserController {
 
     private final UserService userService;
 
-    @GetMapping("/users")
+    @GetMapping("/users-ByCacheable")
     public String getUsers() {
-        List<User> users = userService.findAllUsers();
+        List<User> users = userService.findAllUsersByCacheable();
+        return users.toString();
+    }
+
+    @GetMapping("/users-ByCachePut")
+    public String getUsersByCachePut() {
+        List<User> users = userService.findAllUsersByCachePut();
         return users.toString();
     }
 }
